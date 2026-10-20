@@ -5,103 +5,111 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YehMee Beauty Lounge · Wimpern &amp; Nägel in Delmenhorst</title>
   <meta name="description" content="YehMee Beauty Lounge in Delmenhorst: Wimpernverlängerung und Nageldesign mit Liebe zum Detail. Jetzt online Termin buchen." />
+  <link rel="icon" type="image/png" href="images/booking/logo.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,600;1,400&family=Ms+Madi&family=Open+Sans:wght@700&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,600;1,400&family=Allison&family=Open+Sans:wght@700&display=swap" />
   <link rel="stylesheet" href="css/home.css" />
 </head>
 <body>
 
-  <!-- 1. Slogan bar -->
-  <p class="slogan">Hello Beautiful! Deine Schönheit, Unser Anspruch</p>
+  <!-- 1. Top bar: logo, slogan, language -->
+  <header class="topbar">
+    <a href="#" class="topbar__logo"><img src="images/logo-light.png" alt="YehMee Beauty Lounge" width="162" height="72" /></a>
+    <p class="slogan" data-i18n="slogan">Hello Beautiful! Deine Schönheit, Unser Anspruch</p>
+    <label class="lang">
+      <span class="visually-hidden" data-i18n="lang.label">Sprache</span>
+      <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.5" /><path d="M2.5 12h19M12 2.5c2.6 2.7 3.9 5.9 3.9 9.5s-1.3 6.8-3.9 9.5c-2.6-2.7-3.9-5.9-3.9-9.5s1.3-6.8 3.9-9.5z" /></svg>
+      <select id="lang-select">
+        <option value="de" lang="de">Deutsch</option>
+        <option value="en" lang="en">English</option>
+        <option value="fr" lang="fr">Français</option>
+        <option value="es" lang="es">Español</option>
+        <option value="it" lang="it">Italiano</option>
+        <option value="nl" lang="nl">Nederlands</option>
+        <option value="pt" lang="pt">Português</option>
+        <option value="tr" lang="tr">Türkçe</option>
+        <option value="el" lang="el">Ελληνικά</option>
+        <option value="pl" lang="pl">Polski</option>
+        <option value="cs" lang="cs">Čeština</option>
+      </select>
+    </label>
+  </header>
 
   <!-- 2. Hero: three photos with the script logo on top -->
-  <header class="hero">
+  <section class="hero">
     <div class="hero__photos">
-      <img src="images/home/hero-lashes-1.jpg" alt="Kundin mit Wimpernverlängerung" />
-      <img src="images/home/hero-lashes-2.jpg" alt="Kundin mit Volumenwimpern" />
-      <img src="images/home/hero-nails.jpg" alt="Nude Mandelnägel" />
+      <img src="images/home/hero-lashes-1.jpg" alt="Kundin mit Wimpernverlängerung" data-i18n-alt="alt.hero1" />
+      <img src="images/home/hero-lashes-2.jpg" alt="Kundin mit Volumenwimpern" data-i18n-alt="alt.hero2" />
+      <img src="images/home/hero-nails.jpg" alt="Nude Mandelnägel" data-i18n-alt="alt.hero3" />
     </div>
     <h1 class="hero__title script">Yehmee Beauty Lounge</h1>
-  </header>
+  </section>
 
   <main>
 
     <!-- 3. About me -->
     <section class="about container">
       <figure class="about__photo">
-        <img src="images/home/melissa.jpg" alt="Melissa, Gründerin der YehMee Beauty Lounge" loading="lazy" />
+        <img src="images/home/melissa.jpg" alt="Melissa, Gründerin der YehMee Beauty Lounge" data-i18n-alt="alt.melissa" loading="lazy" />
         <figcaption class="script">Melissa</figcaption>
       </figure>
       <div class="about__text">
-        <h2>Über mich</h2>
-        <p>Hallo Beautiful! ♡<br />
-          Ich bin Melissa, die Gründerin von YehMee Beauty Lounge in Delmenhorst.<br />
-          Mit viel Liebe zum Detail und Leidenschaft für Beauty habe ich mich auf Wimpernverlängerungen und Nageldesign spezialisiert.<br />
-          Mein Ziel ist es, deine natürliche Schönheit zu unterstreichen und dir bei jedem Besuch eine kleine Auszeit zu schenken.<br />
-          Ich freue mich auf dich! ♡</p>
+        <h2 data-i18n="about.title">Über mich</h2>
+        <p data-i18n="about.text">Hallo Beautiful! ♡<br />Ich bin Melissa, die Gründerin von YehMee Beauty Lounge in Delmenhorst.<br />Mit viel Liebe zum Detail und Leidenschaft für Beauty habe ich mich auf Wimpernverlängerungen und Nageldesign spezialisiert.<br />Mein Ziel ist es, deine natürliche Schönheit zu unterstreichen und dir bei jedem Besuch eine kleine Auszeit zu schenken.<br />Ich freue mich auf dich! ♡</p>
       </div>
     </section>
 
     <!-- 4. Booking conditions -->
     <section class="conditions container">
-      <h2 class="section-title">Buchungsbedingungen</h2>
+      <h2 class="section-title" data-i18n="conditions.title">Buchungsbedingungen</h2>
       <div class="conditions__grid">
         <article>
           <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="32" cy="32" r="22" fill="none" stroke="currentColor" stroke-width="2"/><path d="M23 23l18 18M41 23L23 41" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>
-          <h3>Stornierung</h3>
-          <p>Termine können bis 48 Stunden vorher kostenfrei storniert oder verschoben werden.<br />
-            Danach wird die Anzahlung von 15 € nicht erstattet.<br />
-            Bei Nichterscheinen ohne Absage können zukünftige Buchungen eingeschränkt werden.</p>
+          <h3 data-i18n="conditions.cancel.title">Stornierung</h3>
+          <p data-i18n="conditions.cancel.text">Termine können bis 48 Stunden vorher kostenfrei storniert oder verschoben werden.<br />Danach wird die Anzahlung von 15 € nicht erstattet.<br />Bei Nichterscheinen ohne Absage können zukünftige Buchungen eingeschränkt werden.</p>
         </article>
         <article>
           <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="24" cy="24" r="20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 12v12l8 5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><rect x="30" y="28" width="30" height="30" rx="3" fill="#1f1f1f" stroke="currentColor" stroke-width="2"/><path d="M30 36h30M37 42h2M44 42h2M51 42h2M37 48h2M44 48h2M51 48h2M37 54h2M44 54h2" stroke="currentColor" stroke-width="2"/></svg>
-          <h3>Terminbuchung</h3>
-          <p>Termine können ausschließlich online gebucht werden.<br />
-            Bitte erscheine pünktlich zu deinem Termin.<br />
-            Falls du einen Termin nicht wahrnehmen kannst, informiere mich bitte rechtzeitig.</p>
+          <h3 data-i18n="conditions.booking.title">Terminbuchung</h3>
+          <p data-i18n="conditions.booking.text">Termine können ausschließlich online gebucht werden.<br />Bitte erscheine pünktlich zu deinem Termin.<br />Falls du einen Termin nicht wahrnehmen kannst, informiere mich bitte rechtzeitig.</p>
         </article>
         <article>
           <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="30" fill="#000"/><circle cx="32" cy="32" r="24" fill="#fff"/><text x="32" y="44" text-anchor="middle" font-family="Arial Black, Arial" font-weight="900" font-size="34" fill="#000">$</text></svg>
-          <h3>Zahlung</h3>
-          <p>Für jede Buchung ist eine Anzahlung von 15 € erforderlich.<br />
-            Diese wird vom Gesamtpreis abgezogen.<br />
-            Mit einem YehMee-Gutschein entfällt die Anzahlung.<br />
-            Die Restzahlung erfolgt vor Ort bar oder mit Karte.</p>
+          <h3 data-i18n="conditions.payment.title">Zahlung</h3>
+          <p data-i18n="conditions.payment.text">Für jede Buchung ist eine Anzahlung von 15 € erforderlich.<br />Diese wird vom Gesamtpreis abgezogen.<br />Mit einem YehMee-Gutschein entfällt die Anzahlung.<br />Die Restzahlung erfolgt vor Ort bar oder mit Karte.</p>
         </article>
         <article>
           <svg class="icon" viewBox="0 0 64 64" aria-hidden="true"><path d="M16 6h22l12 12v40H16z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><path d="M38 6v12h12" fill="none" stroke="currentColor" stroke-width="3"/><path d="M26 30l12 12-4 4-12-12z" fill="currentColor"/><path d="M28 44L8 62" stroke="currentColor" stroke-width="5" stroke-linecap="round"/></svg>
-          <h3>Pünktlichkeit</h3>
-          <p>Bitte erscheine pünktlich zu deinem Termin.<br />
-            Bei mehr als 10–15 Minuten Verspätung ohne vorherige Benachrichtigung kann die Behandlung verkürzt oder der Termin verschoben werden.</p>
+          <h3 data-i18n="conditions.punctuality.title">Pünktlichkeit</h3>
+          <p data-i18n="conditions.punctuality.text">Bitte erscheine pünktlich zu deinem Termin.<br />Bei mehr als 10–15 Minuten Verspätung ohne vorherige Benachrichtigung kann die Behandlung verkürzt oder der Termin verschoben werden.</p>
         </article>
       </div>
     </section>
 
     <!-- 5. Before your appointment -->
     <section class="before container">
-      <h2 class="section-title">Vor deinem Termin</h2>
+      <h2 class="section-title" data-i18n="before.title">Vor deinem Termin</h2>
       <div class="before__grid">
         <div>
-          <h3>Wichtige Hinweise</h3>
-          <p>Bitte erscheine pünktlich zu deinem Termin. Plane ausreichend Zeit für deine Behandlung ein und informiere mich rechtzeitig, falls du dich verspätest. Ich freue mich auf deinen Besuch! ♡</p>
-          <h3>Terminbestätigung</h3>
-          <p>Nach deiner Online-Buchung erhältst du eine Terminbestätigung per E-Mail. Bitte überprüfe deine Buchungsdetails und achte darauf, dass deine Kontaktdaten korrekt sind. Bei Fragen kannst du dich gerne bei mir melden.</p>
+          <h3 data-i18n="before.notes.title">Wichtige Hinweise</h3>
+          <p data-i18n="before.notes.text">Bitte erscheine pünktlich zu deinem Termin. Plane ausreichend Zeit für deine Behandlung ein und informiere mich rechtzeitig, falls du dich verspätest. Ich freue mich auf deinen Besuch! ♡</p>
+          <h3 data-i18n="before.confirmation.title">Terminbestätigung</h3>
+          <p data-i18n="before.confirmation.text">Nach deiner Online-Buchung erhältst du eine Terminbestätigung per E-Mail. Bitte überprüfe deine Buchungsdetails und achte darauf, dass deine Kontaktdaten korrekt sind. Bei Fragen kannst du dich gerne bei mir melden.</p>
         </div>
-        <img class="before__photo" src="images/home/lash-mirror.jpg" alt="Wimpernverlängerung im Spiegel geprüft" loading="lazy" />
+        <img class="before__photo" src="images/home/lash-mirror.jpg" alt="Wimpernverlängerung im Spiegel geprüft" data-i18n-alt="alt.lash" loading="lazy" />
         <div>
-          <h3>Wimpern &amp; Nägel</h3>
-          <p>Bitte komme möglichst mit gereinigten Wimpern und ohne Augen-Make-up zu deinem Termin.<br />
-            Für Nageltermine kannst du mir gerne vorab ein Inspirationsfoto deines Wunschdesigns schicken.</p>
-          <h3>Begleitpersonen</h3>
-          <p>Du kannst gerne eine Begleitperson zu deinem Termin mitbringen. Bitte achte darauf, dass diese den Behandlungsablauf nicht stört. Vielen Dank für dein Verständnis! ♡</p>
+          <h3 data-i18n="before.prep.title">Wimpern &amp; Nägel</h3>
+          <p data-i18n="before.prep.text">Bitte komme möglichst mit gereinigten Wimpern und ohne Augen-Make-up zu deinem Termin.<br />Für Nageltermine kannst du mir gerne vorab ein Inspirationsfoto deines Wunschdesigns schicken.</p>
+          <h3 data-i18n="before.companions.title">Begleitpersonen</h3>
+          <p data-i18n="before.companions.text">Du kannst gerne eine Begleitperson zu deinem Termin mitbringen. Bitte achte darauf, dass diese den Behandlungsablauf nicht stört. Vielen Dank für dein Verständnis! ♡</p>
         </div>
       </div>
     </section>
 
     <!-- 6. Looks in polaroids + booking call to action -->
     <section class="looks" id="galerie">
-      <h2 class="script looks__title">Das könntest du sein ♡</h2>
+      <h2 class="script looks__title" data-i18n="looks.title">Das könntest du sein ♡</h2>
       <ul class="polaroids">
         <li class="polaroid"><img src="images/home/look-classic-lashes.jpg" alt="" loading="lazy" /><span class="script">Classic Lashes</span></li>
         <li class="polaroid"><img src="images/home/look-volume-lashes-1.jpg" alt="" loading="lazy" /><span class="script">Volume Lashes</span></li>
@@ -109,62 +117,62 @@
         <li class="polaroid"><img src="images/home/look-milky-french.jpg" alt="" loading="lazy" /><span class="script">Milky French</span></li>
         <li class="polaroid"><img src="images/home/look-burgundy-nails.jpg" alt="" loading="lazy" /><span class="script">Burgundy Nails</span></li>
       </ul>
-      <a class="cta" href="buchen.html">Jetzt Termin buchen</a>
+      <a class="cta" href="buchen.html" data-i18n="cta.book">Jetzt Termin buchen</a>
       <img class="cta__hand" src="images/home/click-hand.gif" alt="" width="110" height="95" />
     </section>
 
     <!-- 7. Services and prices -->
     <section class="services" id="leistungen">
       <div class="container">
-        <h2 class="section-title">Unsere Leistungen</h2>
+        <h2 class="section-title" data-i18n="services.title">Unsere Leistungen</h2>
         <div class="services__grid">
           <div>
-            <h3>Wimpern</h3>
+            <h3 data-i18n="services.lashes">Wimpern</h3>
             <ul class="prices">
-              <li><span>Classic 1:1</span><span>50€</span></li>
-              <li><span>Classic Wet Set</span><span>55€</span></li>
-              <li><span>Hybrid Lashes</span><span>55€</span></li>
-              <li><span>Volumen 3D-5D</span><span>65€</span></li>
-              <li><span>Volumen 6D+</span><span>70€</span></li>
-              <li><span>Mega Volumen</span><span>80€</span></li>
-              <li><span>Auffüllen</span><span>40€</span></li>
-              <li><span>Mega Volume Auffüllen</span><span>50€</span></li>
+              <li><span data-i18n="svc.classic">Classic 1:1</span><span>50€</span></li>
+              <li><span data-i18n="svc.wetset">Classic Wet Set</span><span>55€</span></li>
+              <li><span data-i18n="svc.hybrid">Hybrid Lashes</span><span>55€</span></li>
+              <li><span data-i18n="svc.volume35">Volumen 3D-5D</span><span>65€</span></li>
+              <li><span data-i18n="svc.volume6">Volumen 6D+</span><span>70€</span></li>
+              <li><span data-i18n="svc.mega">Mega Volumen</span><span>80€</span></li>
+              <li><span data-i18n="svc.refill">Auffüllen</span><span>40€</span></li>
+              <li><span data-i18n="svc.megaRefill">Mega Volume Auffüllen</span><span>50€</span></li>
             </ul>
           </div>
           <div>
-            <h3>Nägel</h3>
+            <h3 data-i18n="services.nails">Nägel</h3>
             <ul class="prices">
-              <li><span>Acryl-Neumodellage inkl. Nail Art</span><span>50€</span></li>
-              <li><span>Acryl-Entfernung + Neumodellage</span><span>60€</span></li>
-              <li><span>Permanentlack</span><span>30€</span></li>
-              <li><span>Acryl-Auffüllen</span><span>35€</span></li>
-              <li><span>Acryl-Auffüllen bei Fremdarbeit</span><span>40€</span></li>
-              <li><span>Acryl-Entfernung (Eigenarbeit)</span><span>10€</span></li>
-              <li><span>Acryl-Entfernung (Fremdarbeit)</span><span>20€</span></li>
+              <li><span data-i18n="svc.acrylNew">Acryl-Neumodellage inkl. Nail Art</span><span>50€</span></li>
+              <li><span data-i18n="svc.acrylRemoveNew">Acryl-Entfernung + Neumodellage</span><span>60€</span></li>
+              <li><span data-i18n="svc.gelPolish">Permanentlack</span><span>30€</span></li>
+              <li><span data-i18n="svc.acrylRefill">Acryl-Auffüllen</span><span>35€</span></li>
+              <li><span data-i18n="svc.acrylRefillForeign">Acryl-Auffüllen bei Fremdarbeit</span><span>40€</span></li>
+              <li><span data-i18n="svc.acrylRemoveOwn">Acryl-Entfernung (Eigenarbeit)</span><span>10€</span></li>
+              <li><span data-i18n="svc.acrylRemoveForeign">Acryl-Entfernung (Fremdarbeit)</span><span>20€</span></li>
             </ul>
-            <p class="services__note">(Acryl-Auffüllen bis 4 Wochen. Ab der 5. Woche gilt der Preis einer Neumodellage.)</p>
+            <p class="services__note" data-i18n="services.note">(Acryl-Auffüllen bis 4 Wochen. Ab der 5. Woche gilt der Preis einer Neumodellage.)</p>
           </div>
         </div>
       </div>
-      <p class="deposit">15 € Anzahlung bei Terminbuchung erforderlich</p>
+      <p class="deposit" data-i18n="services.deposit">15 € Anzahlung bei Terminbuchung erforderlich</p>
     </section>
 
     <!-- 8. Opening hours and contact -->
     <section class="info container">
       <div class="info__col">
-        <h2>Öffnungszeiten</h2>
+        <h2 data-i18n="hours.title">Öffnungszeiten</h2>
         <div class="card hours">
-          <p class="hours__day">Dienstag – Freitag</p>
+          <p class="hours__day" data-i18n="hours.tueFri">Dienstag – Freitag</p>
           <p class="hours__time">10:00 - 19:30</p>
-          <p class="hours__day">Samstag</p>
+          <p class="hours__day" data-i18n="hours.sat">Samstag</p>
           <p class="hours__time">10:00 - 18:00</p>
-          <p class="hours__closed">Geschlossen</p>
-          <p class="hours__day">Sonntag &amp; Montag</p>
+          <p class="hours__closed" data-i18n="hours.closed">Geschlossen</p>
+          <p class="hours__day" data-i18n="hours.sunMon">Sonntag &amp; Montag</p>
         </div>
       </div>
       <div class="info__divider" aria-hidden="true"></div>
       <div class="info__col">
-        <h2>Kontakt</h2>
+        <h2 data-i18n="contact.title">Kontakt</h2>
         <ul class="card contact">
           <li>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.8 11.9 11.9 0 0 0 4.6 4c1.7.7 2.3.8 3.2.7a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg>
@@ -194,17 +202,23 @@
         <p class="script thanks__tag">Tag Us</p>
       </div>
       <div class="thanks__text">
-        <h2><span class="thanks__serif">Danke für deine</span> <span class="script thanks__script">Buchung</span></h2>
-        <p class="hearts" aria-hidden="true">♥♥♥♥♥</p>
-        <p class="thanks__line">Teile deinen Look auf Instagram und markiere uns! ♡</p>
+        <h2><span class="thanks__serif" data-i18n="thanks.line1">Danke für deine</span> <span class="script thanks__script" data-i18n="thanks.word">Buchung</span></h2>
+        <div class="hearts" aria-hidden="true">
+          <svg viewBox="0 0 92 80"><defs><path id="heart" fill="currentColor" d="M46 78C40 72 4 46 4 23 4 11 13 3 24 3c9 0 17 6 22 14C51 9 59 3 68 3c11 0 20 8 20 20 0 23-36 49-42 55z"/></defs><use href="#heart"/></svg>
+          <svg viewBox="0 0 92 80"><use href="#heart"/></svg>
+          <svg viewBox="0 0 92 80"><use href="#heart"/></svg>
+          <svg viewBox="0 0 92 80"><use href="#heart"/></svg>
+          <svg viewBox="0 0 92 80"><use href="#heart"/></svg>
+        </div>
+        <p class="thanks__line" data-i18n="thanks.text">Teile deinen Look auf Instagram und markiere uns! ♡</p>
       </div>
     </section>
 
     <!-- 10. Social media -->
     <section class="connect">
       <div class="connect__text">
-        <h2>Let´s stay connected</h2>
-        <p>Folge uns auf Social Media und entdecke unsere neuesten Looks! ♡</p>
+        <h2 data-i18n="connect.title">Let´s stay connected</h2>
+        <p data-i18n="connect.text">Folge uns auf Social Media und entdecke unsere neuesten Looks! ♡</p>
         <div class="connect__icons">
           <a href="https://www.instagram.com/yehmeeeyes/" aria-label="Instagram">
             <svg viewBox="0 0 24 24"><rect x="2.5" y="2.5" width="19" height="19" rx="5.5" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4.3" fill="none" stroke="currentColor" stroke-width="2.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor"/></svg>
@@ -218,12 +232,14 @@
           <a href="https://www.instagram.com/yehmeenudenails/">@yehmeenudenails</a>
         </p>
       </div>
-      <img class="connect__photo" src="images/home/stay-connected.jpg" alt="Melissa in der YehMee Beauty Lounge" loading="lazy" />
+      <img class="connect__photo" src="images/home/stay-connected.jpg" alt="Melissa in der YehMee Beauty Lounge" data-i18n-alt="alt.connect" loading="lazy" />
     </section>
 
-    <!-- 11. Imprint -->
+    <!-- 11. Imprint (German only: the German version is legally binding) -->
     <section class="legal container" id="impressum">
-      <h2>Impressum</h2>
+      <h2 data-i18n="legal.imprint">Impressum</h2>
+      <p class="legal__note" data-i18n="legal.note"></p>
+      <div lang="de">
       <p class="legal__lead">Angaben gemäß § 5 DDG<br />
         YehMee Beauty Lounge<br />
         Inhaberin: Diane Melissa Gouzile<br />
@@ -234,11 +250,13 @@
         Telefon: +49 15565 717419<br />
         E-Mail: yehmeeeyes@gmail.com</p>
       <p class="legal__lead">Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE457984968</p>
+      </div>
     </section>
 
-    <!-- 12. Privacy policy -->
+    <!-- 12. Privacy policy (German only) -->
     <section class="legal legal--small container" id="datenschutz">
-      <h2>Datenschutzerklärung</h2>
+      <h2 data-i18n="legal.privacy">Datenschutzerklärung</h2>
+      <div lang="de">
 
       <p>1. Verantwortliche Stelle</p>
       <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:<br />
@@ -283,8 +301,11 @@
       <p>8. Änderungen dieser Datenschutzerklärung</p>
       <p>Ich behalte mir vor, diese Datenschutzerklärung anzupassen, wenn sich die rechtlichen Anforderungen oder die Funktionen dieser Website ändern.</p>
       <p>Es gilt die jeweils auf dieser Website veröffentlichte Fassung.</p>
+      </div>
     </section>
 
   </main>
+
+  <script src="js/i18n.js" defer></script>
 </body>
 </html>

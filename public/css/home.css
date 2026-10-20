@@ -9,9 +9,14 @@
   --white: #ffffff;
   --soft: #d9d9d9;
   --frame: #f2f2f2;
+  /* The brand fonts have no Greek letters. The browser takes each missing
+     letter from the next font in the list, so Greek falls back automatically. */
   --font-display: "Archivo Black", "Arial Black", sans-serif;
   --font-body: "Lora", Georgia, serif;
-  --font-script: "Ms Madi", "Brush Script MT", cursive;
+  --font-script: "Allison", "Segoe Script", "Brush Script MT", cursive;
+  /* Allison draws small for its font size; this brings every script text up
+     to the size of the original Canva lettering. */
+  --script-scale: 1.3;
   --font-legal: "Open Sans", Arial, sans-serif;
   --gap: clamp(1rem, 3vw, 2.5rem);
 }
@@ -38,14 +43,65 @@ h1, h2, h3 { margin: 0; font-weight: 400; }
 h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; }
 .section-title { font-size: clamp(1.3rem, 5.4vw, 4rem); text-align: center; margin-bottom: clamp(2rem, 5vw, 4rem); }
 
-/* 1. Slogan bar */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* 1. Top bar: logo, slogan, language */
+.topbar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas: "logo lang" "slogan slogan";
+  align-items: center;
+  gap: 0.4rem 1rem;
+  padding: 0.6rem var(--gap) 0.8rem;
+}
+.topbar__logo { grid-area: logo; display: block; }
+.topbar__logo img { width: clamp(96px, 9vw, 130px); height: auto; }
 .slogan {
+  grid-area: slogan;
   margin: 0;
-  padding: 0.9rem var(--gap);
   text-align: center;
   font: 400 clamp(0.85rem, 0.6rem + 1vw, 1.6rem) / 1.3 var(--font-display);
   letter-spacing: 0.1em;
 }
+.lang {
+  grid-area: lang;
+  justify-self: end;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.lang svg {
+  position: absolute;
+  left: 10px;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 1.4;
+  pointer-events: none;
+}
+.lang select {
+  appearance: none;
+  min-height: 40px;
+  padding: 0 34px 0 36px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='white' stroke-width='1.6'/%3E%3C/svg%3E") right 13px center / 11px no-repeat;
+  color: var(--white);
+  font: 400 0.95rem / 1 var(--font-body);
+  letter-spacing: 0.04em;
+  cursor: pointer;
+}
+.lang select:hover { border-color: var(--white); }
+.lang select:focus-visible { outline: 2px solid var(--white); outline-offset: 2px; }
+.lang option { color: #111; background: #fff; }
 
 /* 2. Hero */
 .hero { position: relative; }
@@ -55,7 +111,8 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
   position: absolute;
   inset: auto 0 22%;
   text-align: center;
-  font-size: clamp(2.6rem, 1rem + 7vw, 6.6rem);
+  /* Spans about 80% of the photos, like the original lettering */
+  font-size: clamp(2.8rem, 0.5rem + 12.5vw, 11rem);
   line-height: 1;
   text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
 }
@@ -67,7 +124,7 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
   position: absolute;
   left: 29%;
   bottom: 13%;
-  font-size: clamp(3rem, 2rem + 3vw, 4.8rem);
+  font-size: calc(var(--script-scale) * clamp(3rem, 2rem + 3vw, 4.8rem));
   color: rgba(255, 255, 255, 0.85);
 }
 .about__text h2 { font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem); text-align: center; margin-bottom: 0.3em; }
@@ -90,7 +147,7 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
 
 /* 6. Looks */
 .looks { padding: clamp(4rem, 10vw, 9rem) 0 3rem; text-align: center; }
-.looks__title { font-size: clamp(2.4rem, 1.8rem + 2vw, 3.6rem); margin-bottom: clamp(2rem, 6vw, 6rem); }
+.looks__title { font-size: calc(var(--script-scale) * clamp(2.4rem, 1.8rem + 2vw, 3.6rem)); margin-bottom: clamp(2rem, 6vw, 6rem); }
 .polaroids {
   list-style: none;
   margin: 0;
@@ -112,7 +169,7 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
 .polaroid span {
   display: block;
   padding: 0.1em 0 0.15em;
-  font-size: clamp(1.8rem, 1.4rem + 1vw, 2.3rem);
+  font-size: calc(var(--script-scale) * clamp(1.2rem, 2vw, 2.3rem));
   color: #555;
   text-align: left;
   white-space: nowrap;
@@ -174,19 +231,24 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
 .contact a { overflow-wrap: anywhere; }
 
 /* 9. Thank you / tag us */
-.thanks { display: grid; gap: 2rem; align-items: center; padding-top: clamp(4rem, 10vw, 11rem); }
-.thanks__photos { position: relative; height: clamp(380px, 40vw, 470px); max-width: 460px; width: 100%; justify-self: center; }
-.thanks__photos .polaroid { position: absolute; width: 56%; padding: 9px 9px 48px; }
-.thanks__photos .polaroid img { aspect-ratio: 25 / 31; }
-.polaroid--tilt-left { left: 0; top: 0; transform: rotate(-4deg); }
-.polaroid--tilt-right { left: 38%; top: 0; transform: rotate(22deg); transform-origin: top left; }
-.thanks__tag { position: absolute; left: 26%; bottom: 0; margin: 0; font-size: clamp(3.2rem, 2.4rem + 2vw, 4.7rem); }
+.thanks { display: grid; gap: 2rem; align-items: center; max-width: 1680px; padding-top: clamp(4rem, 10vw, 11rem); }
+/* Two photo frames: the left one only slightly tilted and fully visible,
+   the right one turned about 20° and overlapping just its lower right corner. */
+.thanks__photos { position: relative; width: 100%; max-width: 580px; aspect-ratio: 580 / 600; justify-self: center; container-type: inline-size; }
+.thanks__photos .polaroid { position: absolute; width: 48%; padding: 2% 2% 12%; box-shadow: 0 10px 26px rgba(0, 0, 0, 0.45); }
+.thanks__photos .polaroid img { aspect-ratio: 26 / 33; }
+.polaroid--tilt-left { left: 1%; top: 4%; transform: rotate(-4deg); z-index: 1; }
+.polaroid--tilt-right { left: 39%; top: 6%; transform: rotate(20deg); z-index: 2; }
+/* The turned frame's corners must never make the page wider than the screen */
+.thanks { overflow-x: clip; }
+.thanks__tag { position: absolute; left: 0; right: 30%; bottom: 0; margin: 0; text-align: center; font-size: 19cqw; line-height: 1; }
 .thanks__text { text-align: center; }
 .thanks__text h2 { font-family: var(--font-body); text-transform: none; display: grid; justify-items: center; }
-.thanks__serif { font-size: clamp(2rem, 1.2rem + 3vw, 4rem); letter-spacing: 0.1em; text-transform: uppercase; }
-.thanks__script { font-size: clamp(3.4rem, 2.4rem + 3vw, 4.7rem); margin-top: -0.05em; margin-left: -1.2em; }
-.hearts { margin: 1.5rem 0; font-size: clamp(3rem, 2rem + 3vw, 5rem); line-height: 1; letter-spacing: 0; color: #d9d9d9; }
-.thanks__line { font-weight: 600; font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.6rem); letter-spacing: 0.12em; }
+.thanks__serif { font-size: clamp(2rem, 1rem + 3.8vw, 4.6rem); letter-spacing: 0.1em; text-transform: uppercase; line-height: 1.1; }
+.thanks__script { font-size: calc(var(--script-scale) * clamp(3.4rem, 2.4rem + 3.4vw, 5.6rem)); margin-top: -0.12em; margin-left: -1.1em; line-height: 1; }
+.hearts { display: flex; justify-content: center; gap: clamp(4px, 0.6vw, 12px); margin: clamp(1.5rem, 4vw, 3.5rem) 0; color: #d9d9d9; }
+.hearts svg { width: clamp(44px, 6vw, 92px); height: auto; }
+.thanks__line { font-weight: 700; font-size: clamp(1.05rem, 0.8rem + 0.85vw, 1.95rem); letter-spacing: 0.12em; }
 
 /* 10. Social media */
 .connect { display: grid; gap: 3rem; align-items: center; padding-top: clamp(4rem, 9vw, 9rem); }
@@ -203,22 +265,42 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
 .legal { padding-top: clamp(4rem, 10vw, 10rem); }
 .legal h2 { font: 700 clamp(2.4rem, 1.2rem + 4.6vw, 5rem) / 1.1 var(--font-legal); text-transform: uppercase; text-align: center; margin-bottom: 2rem; overflow-wrap: anywhere; }
 .legal__lead { font-size: clamp(1.15rem, 0.9rem + 1vw, 2rem); letter-spacing: 0.08em; line-height: 1.3; margin-bottom: 1.3em; }
+.legal__note {
+  margin: -0.5rem auto 2rem;
+  max-width: 60ch;
+  padding: 0.8rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  font-style: italic;
+  text-align: center;
+}
+body:not([data-lang]) .legal__note,
+body[data-lang="de"] .legal__note { display: none; }
 .legal--small { padding-top: 4rem; padding-bottom: 6rem; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem); line-height: 1.2; }
 .legal--small p { margin-bottom: 1.1em; overflow-wrap: anywhere; }
 
 /* ---- Desktop ---------------------------------------------------------- */
 
 @media (min-width: 768px) {
+  .topbar { grid-template-columns: 1fr auto 1fr; grid-template-areas: "logo slogan lang"; }
   .about { grid-template-columns: 1fr 1fr; }
   .about__photo { justify-self: start; margin-left: 5%; }
-  .conditions__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
-  .before__grid { grid-template-columns: 1fr 293px 1fr; gap: 3rem; }
+  .conditions__grid { grid-template-columns: repeat(2, 1fr); gap: 3rem 2rem; }
   .polaroids { justify-content: space-between; overflow: visible; }
-  .polaroids .polaroid { flex: 1 1 0; max-width: 246px; }
+  .polaroids .polaroid { flex: 1 1 0; min-width: 0; max-width: 246px; }
   .services__grid { grid-template-columns: 1fr 1.25fr; gap: 5rem; }
   .info { grid-template-columns: 1fr 1px 1fr; gap: 3.5rem; align-items: start; }
   .info__divider { display: block; align-self: stretch; margin-top: 4.5rem; background: var(--soft); }
-  .thanks { grid-template-columns: 1fr 1.6fr; }
+  .thanks { grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.65fr); gap: 0; }
+}
+
+/* Four and three columns need a wide screen; tablets keep 2 and 1 columns */
+@media (min-width: 1100px) {
+  .conditions__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .before__grid { grid-template-columns: 1fr 293px 1fr; gap: 3rem; text-align: left; }
+}
+
+@media (min-width: 1280px) {
+  .thanks__line { white-space: nowrap; }
   .connect { grid-template-columns: 1fr 1fr; gap: 0; }
 }
 
