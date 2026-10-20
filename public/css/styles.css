@@ -1,0 +1,234 @@
+/* YehMee Beauty Lounge: design system
+   1. Tokens  2. Base  3. Layout  4. Components
+   Mobile first: base rules are for phones, @media (min-width) adds desktop. */
+
+/* ---- 1. Tokens ---------------------------------------------------------- */
+
+:root {
+  /* Colors. Contrast ratios are against the background they are meant for. */
+  --ink: #111111;        /* text, dark sections           16.9:1 on cream */
+  --paper: #ffffff;      /* page background                               */
+  --cream: #f7f2ed;      /* soft sections                                 */
+  --sand: #d2b9a3;       /* brand beige: accents, on dark only (10:1)     */
+  --mocha: #7a5c45;      /* beige for text on light (6.1:1 on white)      */
+  --stone: #6b625b;      /* secondary text (6.0:1 on white)               */
+  --line: #e8ded5;       /* borders, dividers                             */
+  --danger: #b3261e;
+
+  /* Type */
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Lora", Georgia, "Times New Roman", serif;
+  --text-sm: 0.875rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+  --text-2xl: clamp(2rem, 1.4rem + 3vw, 3.5rem);
+
+  /* Spacing scale: every gap on the site is one of these */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 1rem;
+  --space-4: 1.5rem;
+  --space-5: 2.5rem;
+  --space-6: 4rem;
+
+  --radius: 999px;       /* pill buttons */
+  --radius-card: 4px;
+  --max-width: 1120px;
+  --shadow: 0 10px 30px rgba(17, 17, 17, 0.08);
+}
+
+/* ---- 2. Base ------------------------------------------------------------ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font: 400 var(--text-md) / 1.65 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  margin: 0 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: 400;              /* Archivo Black is already heavy */
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+h1 { font-size: var(--text-2xl); }
+h2 { font-size: var(--text-xl); }
+h3 { font-size: var(--text-lg); }
+
+p { margin: 0 0 var(--space-3); }
+a { color: var(--mocha); text-underline-offset: 3px; }
+img { max-width: 100%; display: block; }
+
+:focus-visible { outline: 3px solid var(--sand); outline-offset: 3px; }
+
+/* ---- 3. Layout ---------------------------------------------------------- */
+
+.container { width: 100%; max-width: var(--max-width); margin: 0 auto; padding: 0 var(--space-3); }
+.section { padding: var(--space-6) 0; }
+.section--cream { background: var(--cream); }
+.section--dark { background: var(--ink); color: var(--paper); }
+.section--dark a { color: var(--sand); }
+
+.eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+  font: 400 var(--text-sm) / 1 var(--font-display);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mocha);
+}
+.section--dark .eyebrow { color: var(--sand); }
+
+.muted { color: var(--stone); }
+.section--dark .muted { color: #bdb3aa; }
+
+/* ---- 4. Components ------------------------------------------------------ */
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;              /* comfortable touch target */
+  padding: 0 var(--space-4);
+  border: 2px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--ink);
+  color: var(--paper);
+  font: 400 var(--text-sm) / 1 var(--font-display);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.btn:hover { background: var(--mocha); border-color: var(--mocha); }
+.btn--outline { background: transparent; color: var(--ink); }
+.btn--outline:hover { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.btn--sand { background: var(--sand); border-color: var(--sand); color: var(--ink); }
+.btn--sand:hover { background: var(--paper); border-color: var(--paper); }
+
+/* Header */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .container { display: flex; align-items: center; justify-content: space-between; min-height: 68px; gap: var(--space-3); }
+.logo { font: 400 var(--text-lg) / 1 var(--font-display); color: var(--ink); text-decoration: none; letter-spacing: 0.04em; }
+.logo span { color: var(--mocha); }
+.nav { display: none; gap: var(--space-4); }
+.nav a { color: var(--ink); text-decoration: none; font-size: var(--text-sm); letter-spacing: 0.08em; text-transform: uppercase; }
+.nav a:hover { color: var(--mocha); }
+
+/* Hero */
+.hero {
+  min-height: 72vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  color: var(--paper);
+  background:
+    linear-gradient(rgba(17, 17, 17, 0.55), rgba(17, 17, 17, 0.75)),
+    var(--hero-image, linear-gradient(135deg, #3a3330, #111111));
+  background-size: cover;
+  background-position: center;
+}
+.hero p { font-style: italic; font-size: var(--text-lg); color: var(--sand); }
+
+/* Deposit banner */
+.banner {
+  padding: var(--space-3);
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  font: 400 var(--text-sm) / 1.4 var(--font-display);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.banner strong { color: var(--sand); font-weight: 400; }
+
+/* Price list: name ........ price */
+.price-columns { display: grid; gap: var(--space-5); }
+.price-list { list-style: none; margin: 0; padding: 0; }
+.price-list li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  font-size: var(--text-lg);
+}
+.price-list .name { flex: 0 1 auto; }
+.price-list .dots { flex: 1 1 auto; border-bottom: 1px dotted var(--stone); transform: translateY(-0.3em); min-width: var(--space-4); }
+.price-list .price { flex: none; font-variant-numeric: tabular-nums; }
+.section--dark .price-list .dots { border-color: #6b625b; }
+.price-note { margin-top: var(--space-3); font-size: var(--text-sm); font-style: italic; }
+
+/* Service option (booking step 1): selectable card with duration */
+.service-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  cursor: pointer;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.service-option:hover { border-color: var(--sand); box-shadow: var(--shadow); }
+.service-option input { position: absolute; opacity: 0; pointer-events: none; }
+.service-option:has(input:checked) { border: 2px solid var(--ink); }
+.service-option .meta { display: flex; align-items: center; gap: var(--space-3); white-space: nowrap; }
+.duration {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px 10px;
+  border-radius: var(--radius);
+  background: var(--cream);
+  color: var(--stone);
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Form fields */
+.field { display: flex; flex-direction: column; gap: var(--space-1); margin-bottom: var(--space-3); }
+.field label { font-size: var(--text-sm); font-weight: 600; }
+.field input, .field textarea {
+  min-height: 48px;
+  padding: var(--space-2) var(--space-3);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card);
+  background: var(--paper);
+  font: inherit;
+  color: var(--ink);
+}
+.field input:focus, .field textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(210, 185, 163, 0.5); }
+.field .error { color: var(--danger); font-size: var(--text-sm); }
+
+/* Opening hours */
+.hours { width: 100%; border-collapse: collapse; }
+.hours td { padding: var(--space-2) 0; border-bottom: 1px solid var(--line); }
+.hours td:last-child { text-align: right; font-variant-numeric: tabular-nums; }
+.section--dark .hours td { border-color: #333; }
+.hours .closed { color: var(--stone); font-style: italic; }
+
+/* ---- Desktop ------------------------------------------------------------ */
+
+@media (min-width: 768px) {
+  .container { padding: 0 var(--space-5); }
+  .nav { display: flex; }
+  .price-columns { grid-template-columns: 1fr 1fr; gap: var(--space-6); }
+}

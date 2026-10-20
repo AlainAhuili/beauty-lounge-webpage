@@ -1,0 +1,229 @@
+/* YehMee Beauty Lounge: home page.
+   Rebuilds the Canva design (dark background, Archivo Black headings,
+   letter-spaced Lora text, script accents) as responsive HTML and CSS.
+   Mobile first: base rules are for phones, @media (min-width) adds desktop. */
+
+:root {
+  --bg: #1f1f1f;
+  --card: #232323;
+  --white: #ffffff;
+  --soft: #d9d9d9;
+  --frame: #f2f2f2;
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Lora", Georgia, serif;
+  --font-script: "Ms Madi", "Brush Script MT", cursive;
+  --font-legal: "Open Sans", Arial, sans-serif;
+  --gap: clamp(1rem, 3vw, 2.5rem);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--white);
+  font: 400 clamp(1rem, 0.9rem + 0.45vw, 1.35rem) / 1.45 var(--font-body);
+  letter-spacing: 0.06em;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; }
+p { margin: 0 0 1em; }
+h1, h2, h3 { margin: 0; font-weight: 400; }
+
+.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 var(--gap); }
+.script { font-family: var(--font-script); font-weight: 400; letter-spacing: 0; text-transform: none; }
+
+h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spacing: 0.01em; line-height: 1.1; }
+.section-title { font-size: clamp(1.3rem, 5.4vw, 4rem); text-align: center; margin-bottom: clamp(2rem, 5vw, 4rem); }
+
+/* 1. Slogan bar */
+.slogan {
+  margin: 0;
+  padding: 0.9rem var(--gap);
+  text-align: center;
+  font: 400 clamp(0.85rem, 0.6rem + 1vw, 1.6rem) / 1.3 var(--font-display);
+  letter-spacing: 0.1em;
+}
+
+/* 2. Hero */
+.hero { position: relative; }
+.hero__photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: #3a3a3a; }
+.hero__photos img { width: 100%; height: clamp(260px, 50vw, 682px); object-fit: cover; }
+.hero__title {
+  position: absolute;
+  inset: auto 0 22%;
+  text-align: center;
+  font-size: clamp(2.6rem, 1rem + 7vw, 6.6rem);
+  line-height: 1;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.35);
+}
+
+/* 3. About me */
+.about { display: grid; gap: var(--gap); padding-top: clamp(3rem, 10vw, 10rem); align-items: center; }
+.about__photo { position: relative; margin: 0; max-width: 385px; justify-self: center; }
+.about__photo figcaption {
+  position: absolute;
+  left: 29%;
+  bottom: 13%;
+  font-size: clamp(3rem, 2rem + 3vw, 4.8rem);
+  color: rgba(255, 255, 255, 0.85);
+}
+.about__text h2 { font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem); text-align: center; margin-bottom: 0.3em; }
+.about__text p { line-height: 1.6; }
+
+/* 4. Booking conditions */
+.conditions { padding-top: clamp(4rem, 12vw, 12rem); }
+.conditions__grid { display: grid; gap: 2.5rem; }
+.conditions article { text-align: left; }
+.conditions .icon { width: 66px; height: 66px; margin: 0 auto 1.25rem 4rem; color: var(--soft); }
+.conditions h3 { font-size: clamp(1.3rem, 1rem + 0.8vw, 1.65rem); margin-bottom: 1.2rem; text-align: center; }
+.conditions p { font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.5rem); line-height: 1.2; letter-spacing: 0.08em; }
+
+/* 5. Before your appointment */
+.before { padding-top: clamp(4rem, 8vw, 6rem); }
+.before__grid { display: grid; gap: 2rem; align-items: start; }
+.before h3 { font-size: clamp(1.2rem, 1rem + 0.6vw, 1.55rem); margin: 0.6em 0 0.7em; }
+.before p { line-height: 1.2; }
+.before__photo { width: 100%; max-width: 293px; justify-self: center; }
+
+/* 6. Looks */
+.looks { padding: clamp(4rem, 10vw, 9rem) 0 3rem; text-align: center; }
+.looks__title { font-size: clamp(2.4rem, 1.8rem + 2vw, 3.6rem); margin-bottom: clamp(2rem, 6vw, 6rem); }
+.polaroids {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 2.6%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+}
+.polaroid {
+  flex: 0 0 auto;
+  width: clamp(180px, 18vw, 246px);
+  padding: 9px 9px 0;
+  background: var(--frame);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  scroll-snap-align: center;
+}
+.polaroid img { width: 100%; aspect-ratio: 235 / 278; object-fit: cover; }
+.polaroid span {
+  display: block;
+  padding: 0.1em 0 0.15em;
+  font-size: clamp(1.8rem, 1.4rem + 1vw, 2.3rem);
+  color: #555;
+  text-align: left;
+  white-space: nowrap;
+}
+.cta {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font: 400 clamp(1.4rem, 1rem + 1.6vw, 2.4rem) / 1.1 var(--font-display);
+  text-transform: uppercase;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 4px;
+}
+.cta:hover { color: var(--soft); }
+.cta__hand { margin: 0.3rem auto 0; }
+
+/* 7. Services */
+.services {
+  padding-top: clamp(3rem, 10vw, 10rem);
+  background: linear-gradient(rgba(31, 31, 31, 0.35), rgba(31, 31, 31, 0.6)), url("../images/home/services-bg.jpg") center / cover no-repeat;
+}
+.services__grid { display: grid; gap: 2.5rem; max-width: 1180px; margin: 0 auto; }
+.services h3 { font-size: clamp(1.6rem, 1.2rem + 1.2vw, 2.1rem); margin: 0 0 0.4rem 1.2rem; }
+.prices { list-style: none; margin: 0; padding: 0; font-size: clamp(1.15rem, 0.9rem + 0.9vw, 1.8rem); letter-spacing: 0; }
+.prices li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.12em 0; }
+.prices li span:last-child { flex: none; font-variant-numeric: tabular-nums; }
+.services__note { margin: 0.8rem 0 0; font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.2rem); font-style: italic; text-align: center; letter-spacing: 0; }
+.deposit {
+  margin: clamp(1.5rem, 3vw, 2rem) 0 0;
+  padding: 0.75rem var(--gap);
+  background: linear-gradient(90deg, #000 0%, #2a2a2a 30%, #2a2a2a 70%, #7a7a7a 100%);
+  font: 400 clamp(0.75rem, 0.6rem + 0.5vw, 1.2rem) / 1.3 var(--font-display);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* 8. Opening hours and contact */
+.info { display: grid; gap: 3rem; padding-top: clamp(4rem, 10vw, 10rem); }
+.info h2 { font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem); text-align: center; margin-bottom: 2rem; }
+.card { background: var(--card); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45); padding: 2rem 1.5rem; }
+.hours { text-align: center; font-size: clamp(1.3rem, 1rem + 1vw, 1.9rem); letter-spacing: 0.1em; }
+.hours p { margin: 0; }
+.hours__day { text-transform: uppercase; margin-top: 1rem !important; }
+.hours__time { margin-bottom: 0.6rem !important; }
+.hours__closed {
+  display: inline-block;
+  margin: 1.2rem 0 0.2rem !important;
+  padding: 0.35rem 0.8rem;
+  background: linear-gradient(90deg, #000, #8a8a8a);
+  font: 400 clamp(1.3rem, 1rem + 1vw, 1.9rem) / 1.2 var(--font-display);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.info__divider { display: none; }
+.contact { list-style: none; margin: 0; display: grid; gap: 1.4rem; font-size: clamp(1.15rem, 0.9rem + 1vw, 2rem); letter-spacing: 0.08em; }
+.contact li { display: flex; align-items: center; gap: 1rem; line-height: 1.15; }
+.contact svg { flex: none; width: 48px; height: 48px; color: var(--white); }
+.contact a.plain { text-decoration: none; }
+.contact a { overflow-wrap: anywhere; }
+
+/* 9. Thank you / tag us */
+.thanks { display: grid; gap: 2rem; align-items: center; padding-top: clamp(4rem, 10vw, 11rem); }
+.thanks__photos { position: relative; height: clamp(380px, 40vw, 470px); max-width: 460px; width: 100%; justify-self: center; }
+.thanks__photos .polaroid { position: absolute; width: 56%; padding: 9px 9px 48px; }
+.thanks__photos .polaroid img { aspect-ratio: 25 / 31; }
+.polaroid--tilt-left { left: 0; top: 0; transform: rotate(-4deg); }
+.polaroid--tilt-right { left: 38%; top: 0; transform: rotate(22deg); transform-origin: top left; }
+.thanks__tag { position: absolute; left: 26%; bottom: 0; margin: 0; font-size: clamp(3.2rem, 2.4rem + 2vw, 4.7rem); }
+.thanks__text { text-align: center; }
+.thanks__text h2 { font-family: var(--font-body); text-transform: none; display: grid; justify-items: center; }
+.thanks__serif { font-size: clamp(2rem, 1.2rem + 3vw, 4rem); letter-spacing: 0.1em; text-transform: uppercase; }
+.thanks__script { font-size: clamp(3.4rem, 2.4rem + 3vw, 4.7rem); margin-top: -0.05em; margin-left: -1.2em; }
+.hearts { margin: 1.5rem 0; font-size: clamp(3rem, 2rem + 3vw, 5rem); line-height: 1; letter-spacing: 0; color: #d9d9d9; }
+.thanks__line { font-weight: 600; font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.6rem); letter-spacing: 0.12em; }
+
+/* 10. Social media */
+.connect { display: grid; gap: 3rem; align-items: center; padding-top: clamp(4rem, 9vw, 9rem); }
+.connect__text { text-align: center; padding: 0 var(--gap); }
+.connect h2 { font-size: clamp(2.2rem, 1.4rem + 2.6vw, 3.6rem); margin-bottom: 2rem; }
+.connect__text > p { font-size: clamp(1.1rem, 0.9rem + 0.6vw, 1.55rem); letter-spacing: 0; }
+.connect__icons { display: flex; justify-content: center; gap: 1.2rem; margin: 3rem 0 1.5rem; }
+.connect__icons a { display: block; width: 67px; height: 67px; }
+.connect__icons svg { width: 100%; height: 100%; }
+.connect__handles { font-size: clamp(1.3rem, 1rem + 1vw, 1.9rem); letter-spacing: 0.08em; line-height: 1.2; }
+.connect__photo { width: 100%; max-height: 901px; object-fit: cover; }
+
+/* 11–12. Legal */
+.legal { padding-top: clamp(4rem, 10vw, 10rem); }
+.legal h2 { font: 700 clamp(2.4rem, 1.2rem + 4.6vw, 5rem) / 1.1 var(--font-legal); text-transform: uppercase; text-align: center; margin-bottom: 2rem; overflow-wrap: anywhere; }
+.legal__lead { font-size: clamp(1.15rem, 0.9rem + 1vw, 2rem); letter-spacing: 0.08em; line-height: 1.3; margin-bottom: 1.3em; }
+.legal--small { padding-top: 4rem; padding-bottom: 6rem; font-size: clamp(1rem, 0.9rem + 0.5vw, 1.5rem); line-height: 1.2; }
+.legal--small p { margin-bottom: 1.1em; overflow-wrap: anywhere; }
+
+/* ---- Desktop ---------------------------------------------------------- */
+
+@media (min-width: 768px) {
+  .about { grid-template-columns: 1fr 1fr; }
+  .about__photo { justify-self: start; margin-left: 5%; }
+  .conditions__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .before__grid { grid-template-columns: 1fr 293px 1fr; gap: 3rem; }
+  .polaroids { justify-content: space-between; overflow: visible; }
+  .polaroids .polaroid { flex: 1 1 0; max-width: 246px; }
+  .services__grid { grid-template-columns: 1fr 1.25fr; gap: 5rem; }
+  .info { grid-template-columns: 1fr 1px 1fr; gap: 3.5rem; align-items: start; }
+  .info__divider { display: block; align-self: stretch; margin-top: 4.5rem; background: var(--soft); }
+  .thanks { grid-template-columns: 1fr 1.6fr; }
+  .connect { grid-template-columns: 1fr 1fr; gap: 0; }
+}
+
+@media (max-width: 767px) {
+  .conditions .icon { margin: 0 auto 1rem; }
+  .conditions p { text-align: center; }
+  .before__grid { text-align: center; }
+}

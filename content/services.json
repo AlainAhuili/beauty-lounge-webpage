@@ -1,0 +1,38 @@
+{
+  "currency": "EUR",
+  "depositEur": 15,
+  "notes": "durationMin values are ESTIMATES until confirmed by the salon.",
+  "categories": [
+    {
+      "id": "lashes",
+      "name": { "de": "Wimpern", "en": "Lashes" },
+      "services": [
+        { "id": "classic-1-1", "name": "Classic 1:1", "priceEur": 50, "durationMin": 120 },
+        { "id": "classic-wet-set", "name": "Classic Wet Set", "priceEur": 55, "durationMin": 120 },
+        { "id": "hybrid-lashes", "name": "Hybrid Lashes", "priceEur": 55, "durationMin": 135 },
+        { "id": "volume-3d-5d", "name": "Volumen 3D–5D", "priceEur": 65, "durationMin": 150 },
+        { "id": "volume-6d-plus", "name": "Volumen 6D+", "priceEur": 70, "durationMin": 165 },
+        { "id": "mega-volume", "name": "Mega Volumen", "priceEur": 80, "durationMin": 180 },
+        { "id": "refill", "name": "Auffüllen", "priceEur": 40, "durationMin": 75 },
+        { "id": "mega-volume-refill", "name": "Mega Volumen Auffüllen", "priceEur": 50, "durationMin": 90 }
+      ]
+    },
+    {
+      "id": "nails",
+      "name": { "de": "Nägel", "en": "Nails" },
+      "note": {
+        "de": "Acryl-Auffüllen bis 4 Wochen. Ab der 5. Woche gilt der Preis einer Neumodellage.",
+        "en": "Acrylic refills up to 4 weeks. From week 5 the price of a new set applies."
+      },
+      "services": [
+        { "id": "acrylic-new-set", "name": "Acryl-Neumodellage inkl. Nail Art", "priceEur": 50, "durationMin": 120 },
+        { "id": "acrylic-removal-new-set", "name": "Acryl-Entfernung + Neumodellage", "priceEur": 60, "durationMin": 150 },
+        { "id": "gel-polish", "name": "Permanentlack", "priceEur": 30, "durationMin": 60 },
+        { "id": "acrylic-refill", "name": "Acryl-Auffüllen", "priceEur": 35, "durationMin": 90 },
+        { "id": "acrylic-refill-foreign", "name": "Acryl-Auffüllen bei Fremdarbeit", "priceEur": 40, "durationMin": 105 },
+        { "id": "acrylic-removal-own", "name": "Acryl-Entfernung (Eigenarbeit)", "priceEur": 10, "durationMin": 20 },
+        { "id": "acrylic-removal-foreign", "name": "Acryl-Entfernung (Fremdarbeit)", "priceEur": 20, "durationMin": 30 }
+      ]
+    }
+  ]
+}

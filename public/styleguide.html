@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Style Guide · YehMee Beauty Lounge</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Style-guide-only helpers */
+    .sg-label { font: 400 0.75rem/1 var(--font-display); letter-spacing: 0.15em; text-transform: uppercase; color: var(--stone); margin: var(--space-5) 0 var(--space-3); }
+    .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--space-3); }
+    .swatch { border: 1px solid var(--line); border-radius: var(--radius-card); overflow: hidden; font-size: var(--text-sm); }
+    .swatch div { height: 80px; }
+    .swatch p { margin: 0; padding: var(--space-2) var(--space-3); }
+    .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+    .stack { display: grid; gap: var(--space-2); max-width: 520px; }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="logo" href="#">YehMee <span>Beauty Lounge</span></a>
+      <nav class="nav" aria-label="Hauptmenü">
+        <a href="#">Leistungen</a><a href="#">Galerie</a><a href="#">Hinweise</a><a href="#">Kontakt</a>
+      </nav>
+      <a class="btn" href="#">Jetzt buchen</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow" style="color: var(--sand)">Wimpern &amp; Nägel in Delmenhorst</span>
+      <h1>Hello Beautiful!</h1>
+      <p>Deine Schönheit, unser Anspruch</p>
+      <a class="btn btn--sand" href="#">Jetzt Termin buchen</a>
+    </div>
+  </section>
+
+  <div class="banner"><strong>15 €</strong> Anzahlung bei Terminbuchung erforderlich</div>
+
+  <main class="container">
+
+    <p class="sg-label">1 · Colors</p>
+    <div class="swatches">
+      <div class="swatch"><div style="background: var(--ink)"></div><p><strong>Ink</strong> #111111<br />Text, dark sections</p></div>
+      <div class="swatch"><div style="background: var(--paper)"></div><p><strong>Paper</strong> #FFFFFF<br />Page background</p></div>
+      <div class="swatch"><div style="background: var(--cream)"></div><p><strong>Cream</strong> #F7F2ED<br />Soft sections</p></div>
+      <div class="swatch"><div style="background: var(--sand)"></div><p><strong>Sand</strong> #D2B9A3<br />Accent, on dark only</p></div>
+      <div class="swatch"><div style="background: var(--mocha)"></div><p><strong>Mocha</strong> #7A5C45<br />Beige text on light</p></div>
+      <div class="swatch"><div style="background: var(--stone)"></div><p><strong>Stone</strong> #6B625B<br />Secondary text</p></div>
+    </div>
+
+    <p class="sg-label">2 · Typography</p>
+    <span class="eyebrow">Eyebrow · Archivo Black</span>
+    <h1>Unsere Leistungen</h1>
+    <h2>Wimpern</h2>
+    <h3>Vor deinem Termin</h3>
+    <p>Body text in Lora. Mit viel Liebe zum Detail und Leidenschaft für Beauty habe ich mich auf Wimpernverlängerungen und Nageldesign spezialisiert.</p>
+    <p class="muted"><em>(Acryl-Auffüllen bis 4 Wochen. Ab der 5. Woche gilt der Preis einer Neumodellage.)</em></p>
+
+    <p class="sg-label">3 · Buttons</p>
+    <div class="row">
+      <a class="btn" href="#">Jetzt buchen</a>
+      <a class="btn btn--outline" href="#">Galerie ansehen</a>
+    </div>
+
+    <p class="sg-label">4 · Booking: choose a service (duration shown only here)</p>
+    <div class="stack">
+      <label class="service-option">
+        <input type="radio" name="svc" checked />
+        <span>Classic 1:1</span>
+        <span class="meta"><span class="duration">2:00 h</span><strong>50 €</strong></span>
+      </label>
+      <label class="service-option">
+        <input type="radio" name="svc" />
+        <span>Auffüllen</span>
+        <span class="meta"><span class="duration">1:15 h</span><strong>40 €</strong></span>
+      </label>
+      <label class="service-option">
+        <input type="radio" name="svc" />
+        <span>Acryl-Entfernung (Eigenarbeit)</span>
+        <span class="meta"><span class="duration">0:20 h</span><strong>10 €</strong></span>
+      </label>
+    </div>
+
+    <p class="sg-label">5 · Form fields</p>
+    <div class="stack">
+      <div class="field"><label for="n">Name</label><input id="n" placeholder="Vor- und Nachname" /></div>
+      <div class="field"><label for="e">E-Mail</label><input id="e" type="email" value="kein-at-zeichen" aria-invalid="true" /><span class="error">Bitte gib eine gültige E-Mail-Adresse ein.</span></div>
+    </div>
+  </main>
+
+  <section class="section section--dark" style="margin-top: var(--space-6)">
+    <div class="container">
+      <p class="sg-label" style="color: var(--sand)">6 · Price list on dark (home page: no durations)</p>
+      <h2 style="text-align: center; margin-bottom: var(--space-5)">Unsere Leistungen</h2>
+      <div class="price-columns">
+        <div>
+          <h3>Wimpern</h3>
+          <ul class="price-list">
+            <li><span class="name">Classic 1:1</span><span class="dots"></span><span class="price">50 €</span></li>
+            <li><span class="name">Classic Wet Set</span><span class="dots"></span><span class="price">55 €</span></li>
+            <li><span class="name">Mega Volumen</span><span class="dots"></span><span class="price">80 €</span></li>
+            <li><span class="name">Mega Volumen Auffüllen</span><span class="dots"></span><span class="price">50 €</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Nägel</h3>
+          <ul class="price-list">
+            <li><span class="name">Acryl-Neumodellage inkl. Nail Art</span><span class="dots"></span><span class="price">50 €</span></li>
+            <li><span class="name">Permanentlack</span><span class="dots"></span><span class="price">30 €</span></li>
+            <li><span class="name">Acryl-Entfernung (Fremdarbeit)</span><span class="dots"></span><span class="price">20 €</span></li>
+          </ul>
+          <p class="price-note muted">(Acryl-Auffüllen bis 4 Wochen. Ab der 5. Woche gilt der Preis einer Neumodellage.)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream">
+    <div class="container" style="max-width: 560px">
+      <p class="sg-label">7 · Opening hours</p>
+      <table class="hours">
+        <tr><td>Dienstag – Freitag</td><td>10:00 – 19:30</td></tr>
+        <tr><td>Samstag</td><td>10:00 – 18:00</td></tr>
+        <tr><td>Sonntag &amp; Montag</td><td class="closed">Geschlossen</td></tr>
+      </table>
+    </div>
+  </section>
+
+</body>
+</html>
