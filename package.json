@@ -1,0 +1,20 @@
+{
+  "name": "beauty-lounge-webpage",
+  "version": "0.1.0",
+  "description": "YehMee Beauty Lounge website, with the booking app as a module",
+  "private": true,
+  "type": "module",
+  "main": "server.js",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "setup": "git submodule update --init && npm --prefix booking install",
+    "start": "node server.js",
+    "dev": "node server.js --watch",
+    "test": "npm --prefix booking test"
+  },
+  "dependencies": {
+    "express": "^5.3.0"
+  }
+}
