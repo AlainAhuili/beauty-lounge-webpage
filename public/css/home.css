@@ -134,7 +134,7 @@ h2, h3 { font-family: var(--font-display); text-transform: uppercase; letter-spa
 .conditions { padding-top: clamp(4rem, 12vw, 12rem); }
 .conditions__grid { display: grid; gap: 2.5rem; }
 .conditions article { text-align: left; }
-.conditions .icon { width: 66px; height: 66px; margin: 0 auto 1.25rem 4rem; color: var(--soft); }
+.conditions .icon { width: 66px; height: 66px; margin: 0 auto 1.25rem 4rem; color: var(--white); }
 .conditions h3 { font-size: clamp(1.3rem, 1rem + 0.8vw, 1.65rem); margin-bottom: 1.2rem; text-align: center; }
 .conditions p { font-size: clamp(1.05rem, 0.9rem + 0.6vw, 1.5rem); line-height: 1.2; letter-spacing: 0.08em; }
 
@@ -295,7 +295,10 @@ body[data-lang="de"] .legal__note { display: none; }
 
 /* Four and three columns need a wide screen; tablets keep 2 and 1 columns */
 @media (min-width: 1100px) {
-  .conditions__grid { grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  /* As on the original site: wide gaps, airy letter spacing, so each column wraps narrow */
+  .conditions__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2rem 3.2rem; }
+  .conditions .icon { display: block; width: 82px; height: 82px; margin: 0 auto 1.6rem; }
+  .conditions p { letter-spacing: 0.13em; line-height: 1.22; }
   .before__grid { grid-template-columns: 1fr 293px 1fr; gap: 3rem; text-align: left; }
 }
 
