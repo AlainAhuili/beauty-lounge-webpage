@@ -80,6 +80,8 @@ h1, h2, h3 { margin: 0; font-weight: 400; color: var(--ink); }
 
 /* Slider */
 .slider { position: relative; border-radius: 12px; overflow: hidden; background: #000; }
+/* On phones the photos come first, above the welcome text */
+.welcome__inner .slider { order: -1; }
 .slider__track { display: flex; transition: transform 0.6s ease; }
 .slider__track img { flex: 0 0 100%; width: 100%; aspect-ratio: 587 / 331; object-fit: cover; }
 .slider__dots {
@@ -166,6 +168,7 @@ address { font-style: normal; padding: 0.9rem 1.5rem 1rem; line-height: 1.6; }
   .menu__login { margin-left: 1.4rem; }
   .welcome { padding: 5.5rem 0 6rem; }
   .welcome__inner { grid-template-columns: 1fr 1fr; gap: 4.5rem; }
+  .welcome__inner .slider { order: 0; }
   .location__card { grid-template-columns: 360px 1fr; }
   .map { min-height: 100%; }
 }

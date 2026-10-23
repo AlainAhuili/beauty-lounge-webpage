@@ -304,8 +304,15 @@ body[data-lang="de"] .legal__note { display: none; }
   .connect { grid-template-columns: 1fr 1fr; gap: 0; }
 }
 
+/* Phones: like the original site, the conditions stay four columns side by side and
+   "Vor deinem Termin" three (text, photo, text), with small type sized to the screen */
 @media (max-width: 767px) {
-  .conditions .icon { margin: 0 auto 1rem; }
-  .conditions p { text-align: center; }
-  .before__grid { text-align: center; }
+  .conditions__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0 2.5vw; }
+  .conditions .icon { display: block; width: 7vw; height: 7vw; margin: 0 auto 2vw; }
+  .conditions h3 { font-size: 2.15vw; letter-spacing: 0.02em; margin-bottom: 2vw; text-align: center; }
+  .conditions p { font-size: 2.3vw; line-height: 1.25; letter-spacing: 0.06em; text-align: left; overflow-wrap: break-word; hyphens: auto; }
+  .before__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr) minmax(0, 1fr); gap: 0 3vw; align-items: center; text-align: left; }
+  .before h3 { font-size: 2.6vw; margin: 2.4vw 0 1.6vw; }
+  .before p { font-size: 2.2vw; line-height: 1.25; letter-spacing: 0.04em; overflow-wrap: break-word; hyphens: auto; }
+  .before__photo { max-width: 100%; }
 }
