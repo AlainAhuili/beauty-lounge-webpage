@@ -80,7 +80,7 @@ h1, h2, h3 { margin: 0; font-weight: 400; color: var(--ink); }
 
 /* Slider */
 .slider { position: relative; border-radius: 12px; overflow: hidden; background: #000; }
-/* Lash close-ups: brows to lips, eyes in the upper third (like slide 3) */
+/* Lash close-ups: brows to lips, eyes in the upper third (like slide-2.jpg) */
 .slider .slide--eyes { object-position: center 35%; }
 /* On phones the photos come first, above the welcome text */
 .welcome__inner .slider { order: -1; }
